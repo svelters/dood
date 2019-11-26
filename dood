@@ -1,0 +1,17 @@
+#!/bin/sh
+if [ -z $1 ]
+then
+    echo "Usage: dood [command]"
+    exit 1;
+fi;
+COMMAND=$1
+shift
+CONTAINER_ID=$(docker ps --format "{{.ID}} {{.Image}}" | fzf -0 -1 | awk -F ' ' '{print $1}')
+case "$COMMAND" in
+    logs)
+        docker logs $CONTAINER_ID $@
+        ;;
+    *)
+        docker exec -it $CONTAINER_ID $COMMAND $@
+        ;;
+esac

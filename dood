@@ -17,6 +17,9 @@ case "$COMMAND" in
     inspect)
         docker inspect $CONTAINER_ID
         ;;
+    stop)
+        docker stop $CONTAINED_ID
+        ;;
     *)
         docker exec -it $CONTAINER_ID $COMMAND $@
         ;;

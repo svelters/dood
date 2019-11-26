@@ -1,5 +1,5 @@
-bin-dir=/usr/bin/
-man1-dir=/usr/share/man/man1/
+bin-dir=/usr/bin
+man1-dir=/usr/share/man/man1
 
 install-bin:
 	@cp -f dood $(bin-dir)
